@@ -18,7 +18,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-12 02:48:15.123956",
+ "modified": "2025-10-15 18:52:05.987613",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket Add-on Type",
@@ -36,6 +36,30 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Fleet Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Airport Authority Personnel",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Flight Crew Member",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
   }
  ],
  "row_format": "Dynamic",

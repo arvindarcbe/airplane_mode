@@ -52,7 +52,7 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2025-10-15 11:54:55.489562",
+ "modified": "2025-10-15 18:50:37.905629",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airline",
@@ -70,6 +70,25 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Airport Authority Personnel",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Fleet Manager"
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
   }
  ],
  "row_format": "Dynamic",
