@@ -140,6 +140,12 @@ app_license = "mit"
 # 	}
 # }
 
+# doc_events = {
+#     "Airplane Flight": {
+#         "on_update": "airplane_mode.airplane_mode.doctype.airplane_flight.airplane_flight.enqueue_sync_gate_to_tickets"
+#     }
+# }
+
 # Scheduled Tasks
 # ---------------
 
@@ -244,4 +250,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-

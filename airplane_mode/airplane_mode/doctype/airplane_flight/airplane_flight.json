@@ -12,6 +12,7 @@
   "airplane",
   "column_break_hxdy",
   "status",
+  "gate_number",
   "airport_details_section",
   "source_airport",
   "source_airport_code",
@@ -24,7 +25,9 @@
   "column_break_aakt",
   "time_of_departure",
   "is_published",
-  "route"
+  "route",
+  "section_break_qlzk",
+  "crew"
  ],
  "fields": [
   {
@@ -135,6 +138,23 @@
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route"
+  },
+  {
+   "fieldname": "section_break_qlzk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "crew",
+   "fieldtype": "Table",
+   "label": "Crew",
+   "options": "Flight Crew Assignment"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
@@ -148,7 +168,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-10-15 18:51:47.733634",
+ "modified": "2025-10-16 01:35:26.176026",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

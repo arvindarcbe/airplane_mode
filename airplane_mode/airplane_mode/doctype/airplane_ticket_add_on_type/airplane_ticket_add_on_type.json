@@ -6,19 +6,27 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "description"
+  "description",
+  "price"
  ],
  "fields": [
   {
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-15 18:52:05.987613",
+ "modified": "2025-10-16 00:39:46.034815",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket Add-on Type",
@@ -36,30 +44,6 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "read": 1,
-   "role": "Fleet Manager",
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "read": 1,
-   "role": "Airport Authority Personnel",
-   "write": 1
-  },
-  {
-   "create": 1,
-   "read": 1,
-   "role": "Flight Crew Member",
-   "write": 1
-  },
-  {
-   "read": 1,
-   "role": "Travel Agent"
   }
  ],
  "row_format": "Dynamic",

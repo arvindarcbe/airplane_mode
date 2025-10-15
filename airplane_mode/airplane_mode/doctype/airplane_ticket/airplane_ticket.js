@@ -9,35 +9,31 @@
 // Custom client-side script for Airplane Ticket DocType
 frappe.ui.form.on("Airplane Ticket", {
 	refresh(frm) {
-		// Add a custom button "Assign seat" under the "Actions" group
 		frm.add_custom_button(
 			"Assign seat",
-			function () {
-				// Create a dialog (popup) to enter/select seat number
-				let dialog = new frappe.ui.Dialog({
-					title: "Select seat", // Title of the dialog
+			() => {
+				const d = new frappe.ui.Dialog({
+					title: "Select seat",
 					fields: [
 						{
-							label: "Seat Number", // Label shown in dialog
-							fieldname: "seat_number", // Internal name for field
-							fieldtype: "Data", // Data type (simple text input)
-							reqd: true, // Field is mandatory
+							label: "Seat Number",
+							fieldname: "seat_number",
+							fieldtype: "Data",
+							reqd: 1,
+							default: frm.doc.seat || "",
 						},
 					],
-					primary_action_label: "Assign", // Button label inside dialog
-
-					// Function triggered when user clicks "Assign"
+					primary_action_label: "Assign",
 					primary_action(values) {
-						// Set the selected seat number into the 'seat' field of the form
 						frm.set_value("seat", values.seat_number);
-						dialog.hide(); // Close the dialog after assigning
+						d.hide();
+						// Optional: save automatically
+						// frm.save();
 					},
 				});
-
-				// Show the dialog popup
-				dialog.show();
+				d.show();
 			},
-			__("Actions") // Group the button under "Actions" dropdown
+			__("Actions")
 		);
 	},
 });

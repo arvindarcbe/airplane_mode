@@ -12,6 +12,10 @@ class AirplaneTicket(Document):
         seat_number = random.randint(1, 99)
         seat_letter = random.choice(["A", "B", "C", "D", "E"])
         self.seat = f"{seat_number}{seat_letter}"
+        if not (self.gate_number or "").strip() and self.flight:
+            self.gate_number = frappe.db.get_value(
+                "Airplane Flight", self.flight, "gate_number"
+            )
 
     def validate(self):
         add_on_list = []
@@ -50,5 +54,11 @@ class AirplaneTicket(Document):
                     frappe.throw("Airplane is full. Please select another flight.")
 
     def before_submit(self):
-        if self.status != "Boarded":
-            frappe.throw("Only tickets with Status 'Boarded' can be submitted.")
+        if self.status != "Checked In":
+            frappe.throw("Only tickets with Status 'Checked In' can be submitted.")
+        self.status = "Boarded"
+
+    def before_update_after_submit(self):
+        original = self.get_doc_before_save()
+        if original.seat != self.seat:
+            frappe.throw("Seat change is not allowed after Boarding.")
