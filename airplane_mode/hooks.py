@@ -140,11 +140,13 @@ app_license = "mit"
 # 	}
 # }
 
-# doc_events = {
-#     "Airplane Flight": {
-#         "on_update": "airplane_mode.airplane_mode.doctype.airplane_flight.airplane_flight.enqueue_sync_gate_to_tickets"
-#     }
-# }
+
+doc_events = {
+    "Airplane Flight": {
+        "on_update": "airplane_mode.airplane_mode.doctype.airplane_flight.airplane_flight.enqueue_sync_gate_to_tickets"
+    }
+}
+
 
 # Scheduled Tasks
 # ---------------
@@ -166,6 +168,13 @@ app_license = "mit"
 # 		"airplane_mode.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+    "cron": {
+        "0 9 1 * *": ["airplane_modeairport_shop.jobs.send_monthly_rent_reminders"]
+    },
+    "daily": ["airplane_mode.airport_shop.jobs.send_overdue_rent_reminders"],
+}
 
 # Testing
 # -------

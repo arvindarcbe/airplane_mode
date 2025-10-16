@@ -75,3 +75,22 @@ class AirplaneFlight(WebsiteGenerator):
                 self.gate_number or "",
                 update_modified=False,
             )
+
+    def enqueue_sync_gate_to_tickets(doc, method=None):
+        frappe.enqueue(
+            "airplane_mode.airplane_mode.doctype.airplane_flight.airplane_flight.sync_gate_to_tickets",
+            queue="short",
+            job_name=f"sync_gate_{doc.name}",
+            flight_name=doc.name,
+            gate_number=doc.gate_number or "",
+        )
+
+    def sync_gate_to_tickets(flight_name: str, gate_number: str):
+        names = frappe.get_all(
+            "Airplane Ticket", filters={"flight": flight_name}, pluck="name"
+        )
+        for tn in names:
+            frappe.db.set_value(
+                "Airplane Ticket", tn, "gate_number", gate_number, update_modified=False
+            )
+            frappe.db.commit()
