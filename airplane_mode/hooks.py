@@ -171,7 +171,7 @@ doc_events = {
 
 scheduler_events = {
     "cron": {
-        "0 9 1 * *": ["airplane_modeairport_shop.jobs.send_monthly_rent_reminders"]
+        "0 9 1 * *": ["airplane_mode.airport_shop.jobs.send_monthly_rent_reminders"]
     },
     "daily": ["airplane_mode.airport_shop.jobs.send_overdue_rent_reminders"],
 }
@@ -259,3 +259,5 @@ scheduler_events = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+
+fixtures = [{"dt": "Shop Type"}]
