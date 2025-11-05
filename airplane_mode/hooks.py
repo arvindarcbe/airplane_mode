@@ -260,4 +260,4 @@ scheduler_events = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-fixtures = [{"dt": "Shop Type"}]
+fixtures = [{"dt": "Shop Type"}, {"dt": "Airport Shop"}]
